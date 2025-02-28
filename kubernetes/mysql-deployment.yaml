@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: <your-ecr-registry>/mysql-assignment2:latest
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "db_pass123"
+        - name: MYSQL_DATABASE
+          value: "mydb"
+        ports:
+        - containerPort: 3306
