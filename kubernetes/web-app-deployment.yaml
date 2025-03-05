@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: webapp-container
-        image: <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/webapp:latest
+        image: web:latest
         ports:
         - containerPort: 8080
         env:
