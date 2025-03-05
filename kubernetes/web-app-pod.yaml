@@ -7,8 +7,8 @@ metadata:
     app: employees
 spec:
   containers:
-  - name: web
-    image: web:latest
+  - name: webapp
+    image: webapp:latest
     ports:
     - containerPort: 8080
     env:
