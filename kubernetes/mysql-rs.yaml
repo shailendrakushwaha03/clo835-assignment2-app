@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: mysql-rs
+  namespace: mysql-ns
 spec:
   replicas: 1
   selector:
@@ -14,11 +15,11 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: <your-ecr-registry>/mysql-assignment2:latest
+        image: <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/mysql:latest
+        ports:
+        - containerPort: 3306
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "db_pass123"
         - name: MYSQL_DATABASE
-          value: "mydb"
-        ports:
-        - containerPort: 3306
+          value: "employees"
