@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: webapp-container
-        image: web:latest
+        image: webapp:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 8080
         env:
@@ -30,4 +31,4 @@ spec:
         - name: DATABASE
           value: "employees"
         - name: APP_COLOR
-          value: "lime"
+          value: "pink"
